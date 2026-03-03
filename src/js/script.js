@@ -152,10 +152,12 @@ task.map((item, index) => {
 
 btnAddNewTask.addEventListener('click', () => {
   taskName = document.getElementById('taskName').value;
+  
   if (taskName === '') {
     alert('Please enter task name');
     return;
   }
+  document.getElementById('formAdd').style.display = 'none';
   let newTask = {
     taskName: taskName,
     priority: priority,
