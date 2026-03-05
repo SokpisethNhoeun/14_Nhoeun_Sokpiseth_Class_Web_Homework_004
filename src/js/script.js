@@ -18,16 +18,15 @@ btnCancelDelete.addEventListener('click', function () {
 function isDelete() {
   task = task.filter((item, i) => i !== id);
   const taskList = document.getElementById('taskList');
-  console.log(task);
   taskList.innerHTML = '';
   task.map((item, index) => {
     let taskItem = document.createElement('div');
     taskItem.innerHTML = `
-<div class="m-auto w-4/5 px-10 py-10 bg-white rounded-bl-lg rounded-tr-lg flex justify-between items-center">
-            <div class="font-extrabold text-2xl">${item.taskName}</div>
-            <div class="flex justify-between items-center w-1/2">
-                ${item.priority == 'high' ? '<p class="font-extrabold text-xl text-red-500">High</p>' : item.priority == 'medium' ? '<p class="font-extrabold text-xl text-yellow-500">Medium</p>' : '<p class="font-extrabold text-xl text-green-500">Low</p>'}
-                ${item.status == 'todo' ? '<p class="font-extrabold text-xl text-blue-500">Todo</p>' : item.status == 'in progress' ? '<p class="font-extrabold text-xl text-blue-500">In Progress</p>' : '<p class="font-extrabold text-xl text-blue-500">Done</p>'}
+<div class="m-auto w-4/5 px-10 py-10 bg-white rounded-bl-lg rounded-tr-lg grid grid-cols-12">
+            <div class="font-extrabold text-2xl col-span-6">${item.taskName}</div>
+            <div class="col-span-6 grid grid-cols-6">
+                ${item.priority == 'high' ? '<p class="font-extrabold text-xl text-red-500 col-span-2">High</p>' : item.priority == 'medium' ? '<p class="font-extrabold col-span-2 text-xl text-yellow-500">Medium</p>' : '<p class="font-extrabold col-span-2 text-xl text-green-500">Low</p>'}
+                ${item.status == 'todo' ? '<p class="font-extrabold text-xl text-blue-500 col-span-2">Todo</p>' : item.status == 'in progress' ? '<p class="font-extrabold text-xl col-span-2 text-blue-500">In Progress</p>' : '<p class="font-extrabold text-xl text-blue-500 col-span-2">Done</p>'}
                 <div class="flex space-x-2 items-center justify-between">
                     <button class="text-purple-800 text-3xl" onclick="btnUpdate(${index})"><i class="fa-regular fa-pen-to-square"></i></button>
                     <button class="text-red-500 text-3xl" onclick="deleteTask(${index})"><i class="fa-regular fa-trash-can "></i></button>
@@ -97,7 +96,6 @@ function selectedPriority(id) {
   }
 }
 
-
 function selectedStatus() {
   const buttons = document.querySelectorAll('.status');
   buttons.forEach((btn) => {
@@ -133,12 +131,12 @@ task.map((item, index) => {
   const taskList = document.getElementById('taskList');
   let taskItem = document.createElement('div');
   taskItem.innerHTML = `
-<div class="m-auto w-4/5 px-10 py-10 bg-white rounded-bl-lg rounded-tr-lg flex justify-between items-center">
-            <div class="font-extrabold text-2xl">${item.taskName}</div>
-            <div class="flex justify-between items-center w-1/2">
+<div class="m-auto w-4/5 px-10 py-10 bg-white rounded-bl-lg rounded-tr-lg grid grid-cols-12">
+            <div class="font-extrabold text-2xl col-span-6">${item.taskName}</div>
+            <div class="col-span-6 grid grid-cols-6">
                 
-                ${item.priority == 'high' ? '<p class="font-extrabold text-xl text-red-500">High</p>' : item.priority == 'medium' ? '<p class="font-extrabold text-xl text-yellow-500">Medium</p>' : '<p class="font-extrabold text-xl text-green-500">Low</p>'}
-                ${item.status == 'todo' ? '<p class="font-extrabold text-xl text-blue-500">Todo</p>' : item.status == 'in progress' ? '<p class="font-extrabold text-xl text-blue-500">In Progress</p>' : '<p class="font-extrabold text-xl text-blue-500">Done</p>'}
+                ${item.priority == 'high' ? '<p class=" col-span-2 font-extrabold text-xl text-red-500">High</p>' : item.priority == 'medium' ? '<p class="col-span-2 font-extrabold text-xl text-yellow-500">Medium</p>' : '<p class="col-span-2 font-extrabold text-xl text-green-500">Low</p>'}
+                ${item.status == 'todo' ? '<p class="font-extrabold text-xl text-blue-500 col-span-2">Todo</p>' : item.status == 'in progress' ? '<p class="font-extrabold text-xl col-span-2 text-blue-500">In Progress</p>' : '<p class="font-extrabold text-xl text-blue-500 col-span-2">Done</p>'}
                 <div class="flex space-x-2 items-center justify-between">
                     <button class="text-purple-800 text-3xl" onclick="btnUpdate(${index})"><i class="fa-regular fa-pen-to-square"></i></button>
                     <button class="text-red-500 text-3xl" onclick="deleteTask(${index})"><i class="fa-regular fa-trash-can "></i></button>
@@ -152,7 +150,7 @@ task.map((item, index) => {
 
 btnAddNewTask.addEventListener('click', () => {
   taskName = document.getElementById('taskName').value;
-  
+
   if (taskName === '') {
     alert('Please enter task name');
     return;
@@ -186,11 +184,11 @@ btnAddNewTask.addEventListener('click', () => {
   let taskItem = document.createElement('div');
   task.map((item, index) => {
     taskItem.innerHTML = `
-<div class="m-auto w-4/5 px-10 py-10 bg-white rounded-bl-lg rounded-tr-lg flex justify-between items-center">
-            <div class="font-extrabold text-2xl">${item.taskName}</div>
-            <div class="flex justify-between items-center w-1/2">
-                ${item.priority == 'high' ? '<p class="font-extrabold text-xl text-red-500">High</p>' : item.priority == 'medium' ? '<p class="font-extrabold text-xl text-yellow-500">Medium</p>' : '<p class="font-extrabold text-xl text-green-500">Low</p>'}
-                ${item.status == 'todo' ? '<p class="font-extrabold text-xl text-blue-500">Todo</p>' : item.status == 'in progress' ? '<p class="font-extrabold text-xl text-blue-500">In Progress</p>' : '<p class="font-extrabold text-xl text-blue-500">Done</p>'}
+<div class="m-auto w-4/5 px-10 py-10 bg-white rounded-bl-lg rounded-tr-lg grid grid-cols-12">
+            <div class="font-extrabold text-2xl col-span-6">${item.taskName}</div>
+            <div class="col-span-6 grid grid-cols-6">
+                ${item.priority == 'high' ? '<p class="font-extrabold text-xl text-red-500 col-span-2">High</p>' : item.priority == 'medium' ? '<p class="font-extrabold col-span-2 text-xl text-yellow-500">Medium</p>' : '<p class="font-extrabold col-span-2 text-xl text-green-500">Low</p>'}
+                ${item.status == 'todo' ? '<p class="font-extrabold text-xl text-blue-500 col-span-2">Todo</p>' : item.status == 'in progress' ? '<p class="font-extrabold text-xl col-span-2 text-blue-500">In Progress</p>' : '<p class="font-extrabold text-xl text-blue-500 col-span-2">Done</p>'}
                 <div class="flex space-x-2 items-center justify-between">
                     <button class="text-purple-800 text-3xl" onclick="btnUpdate(${index})"><i class="fa-regular fa-pen-to-square"></i></button>
                     <button class="text-red-500 text-3xl" onclick="deleteTask(${index})"><i class="fa-regular fa-trash-can "></i></button>
@@ -265,11 +263,11 @@ let updateTask = () => {
   task.map((item, index) => {
     let taskItem = document.createElement('div');
     taskItem.innerHTML = `
-<div class="m-auto w-4/5 px-10 py-10 bg-white rounded-bl-lg rounded-tr-lg flex justify-between items-center">
-            <div class="font-extrabold text-2xl">${item.taskName}</div>
-            <div class="flex justify-between items-center w-1/2">
-                ${item.priority == 'high' ? '<p class="font-extrabold text-xl text-red-500">High</p>' : item.priority == 'medium' ? '<p class="font-extrabold text-xl text-yellow-500">Medium</p>' : '<p class="font-extrabold text-xl text-green-500">Low</p>'}
-                ${item.status == 'todo' ? '<p class="font-extrabold text-xl text-blue-500">Todo</p>' : item.status == 'in progress' ? '<p class="font-extrabold text-xl text-blue-500">In Progress</p>' : '<p class="font-extrabold text-xl text-blue-500">Done</p>'}
+<div class="m-auto w-4/5 px-10 py-10 bg-white rounded-bl-lg rounded-tr-lg grid grid-cols-12">
+            <div class="font-extrabold text-2xl col-span-6">${item.taskName}</div>
+            <div class="col-span-6 grid grid-cols-6">
+                ${item.priority == 'high' ? '<p class="font-extrabold text-xl text-red-500 col-span-2">High</p>' : item.priority == 'medium' ? '<p class="font-extrabold col-span-2 text-xl text-yellow-500">Medium</p>' : '<p class="font-extrabold col-span-2 text-xl text-green-500">Low</p>'}
+                ${item.status == 'todo' ? '<p class="font-extrabold text-xl text-blue-500 col-span-2">Todo</p>' : item.status == 'in progress' ? '<p class="font-extrabold text-xl col-span-2 text-blue-500">In Progress</p>' : '<p class="font-extrabold text-xl text-blue-500 col-span-2">Done</p>'}
                 <div class="flex space-x-2 items-center justify-between">
                     <button class="text-purple-800 text-3xl" onclick="btnUpdate(${index})"><i class="fa-regular fa-pen-to-square"></i></button>
                     <button class="text-red-500 text-3xl" onclick="deleteTask(${index})"><i class="fa-regular fa-trash-can "></i></button>

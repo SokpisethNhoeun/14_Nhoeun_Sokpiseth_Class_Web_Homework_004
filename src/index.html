@@ -20,7 +20,7 @@
 
         <!-- ADD -->
         <div id="formAdd"
-            class="absolute w-full min-h-screen items-center justify-center z-10 top-0 left-0 bg-opacity-50 bg-gray-700 backdrop-blur-sm hidden ">
+            class="fixed w-full min-h-screen items-center justify-center z-10 top-0 left-0 bg-opacity-50 bg-gray-700 backdrop-blur-sm hidden ">
 
             <form class="z-40 w-1/3 flex flex-col space-y-4 p-10 bg-white rounded-3xl">
                 <div class="flex justify-between items-center">
@@ -76,7 +76,7 @@
 
         <!-- UPDATE -->
         <div id="formUpdate"
-            class="absolute w-full min-h-screen items-center justify-center z-10 top-0 left-0 bg-opacity-50 bg-gray-700 backdrop-blur-sm hidden ">
+            class="fixed w-full min-h-screen items-center justify-center z-10 top-0 left-0 bg-opacity-50 bg-gray-700 backdrop-blur-sm hidden ">
 
             <form class="z-40 w-1/3 flex flex-col space-y-4 p-10 bg-white rounded-3xl">
                 <div class="flex justify-between items-center">
@@ -156,7 +156,7 @@
 
         <!-- end hidden -->
 
-        <div class="w-full min-h-screen space-y-6 bg-blue-400 p-20 relative">
+        <div class="w-full min-h-screen space-y-6 bg-blue-300 p-20 relative">
             <div class="m-auto w-4/5">
                 <div class="flex justify-between items-center ">
                     <h1 class="text-5xl font-extrabold text-black">Task list</h1>
@@ -166,30 +166,16 @@
                         Add task </button>
                 </div>
             </div>
-            <div
-                class="m-auto w-4/5 px-10 py-8 bg-white shadow-gray-700 shadow-lg rounded-2xl flex justify-between items-center">
-                <div class="font-extrabold text-2xl text-blue-500">My Tasks</div>
-                <div class="flex justify-between items-center w-1/2">
-                    <p class="font-extrabold text-xl  text-blue-500">Priority</p>
-                    <p class="font-extrabold text-xl text-blue-500">Status</p>
-                    <p class="font-extrabold text-xl text-orange-500">Actions</p>
+            <div class="m-auto w-4/5 px-10 py-8 bg-white shadow-gray-700 shadow-lg rounded-2xl grid grid-cols-12">
+                <div class="font-extrabold text-2xl text-blue-500 col-span-6">My Tasks</div>
+                <div class="col-span-6 grid grid-cols-6">
+                    <p class="font-extrabold text-xl  text-blue-500 col-span-2">Priority</p>
+                    <p class="font-extrabold text-xl text-blue-500 col-span-2">Status</p>
+                    <p class="font-extrabold text-xl text-orange-500 col-span-2">Actions</p>
                 </div>
 
             </div>
             <div id="taskList" class="space-y-6 flex flex-col"></div>
-            <!-- <div class="m-auto w-4/5 px-10 py-10 bg-white rounded-bl-lg rounded-tr-lg flex justify-between items-center">
-            <div class="font-extrabold text-2xl">Java Homework</div>
-            <div class="flex justify-around items-center w-1/2">
-                <p class="font-extrabold text-xl  text-blue-500">High</p>
-                <p class="font-extrabold text-xl text-blue-500">Progress</p>
-                <div class="flex space-x-2 items-center justify-between">
-                    <button class="text-purple-800 text-3xl" onclick="editTask(this)"><i class="fa-regular fa-pen-to-square"></i></button>
-                    <button class="text-red-500 text-3xl" onclick="deleteTask(this)"><i class="fa-regular fa-trash-can "></i></button>
-
-                </div>
-            </div>
-        </div> -->
-
         </div>
     </div>
 
